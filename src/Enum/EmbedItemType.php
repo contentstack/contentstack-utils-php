@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace Contentstack\Utils\Enums;
+namespace Contentstack\Utils\Enum;
 
 use MabeEnum\Enum;
 

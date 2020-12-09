@@ -2,10 +2,10 @@
 
 declare(strict_types=1);
 
-namespace Contentstack\Utils\Models;
+namespace Contentstack\Utils\Model;
 
-use Contentstack\Utils\Enums\EmbedItemType;
-use Contentstack\Utils\Enums\StyleType;
+use Contentstack\Utils\Enum\EmbedItemType;
+use Contentstack\Utils\Enum\StyleType;
 
 class Metadata {
 
@@ -80,6 +80,10 @@ class Metadata {
     public function getAttributes(): \DOMNamedNodeMap
     {
         return $this->attributes;
+    }
+
+    public function getAttribute(string $name): string {
+        return $this->element->getAttribute($name);
     }
 
     public function getOuterHTML(): string
