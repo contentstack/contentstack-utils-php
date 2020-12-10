@@ -8,5 +8,9 @@ use Contentstack\Utils\Model\Metadata;
 
 interface RenderableInterface 
 {
+    /**
+     * @param $embeddedObject - Embedded object content of type Asset/Entry 
+     * @param $metadata - Tag details and attributes
+     */
     function renderOptions(array $embeddedObject, Metadata $metadata): string;
 }
