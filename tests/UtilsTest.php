@@ -196,8 +196,7 @@ class UtilsTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new Option(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals('<a href="blt55f6d8cbd7e03a1f">
-{{title}}
+        $this->assertEquals('<a href="blt55f6d8cbd7e03a1f">{{title}}
 </a>', $sss);
     }
 
@@ -209,8 +208,7 @@ class UtilsTest extends TestCase
         $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new Option(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['<a href="blt55f6d8cbd7e03a1f">
-{{title}}
+        $this->assertEquals(['<a href="blt55f6d8cbd7e03a1f">{{title}}
 </a>'], $sss);
     }
 
@@ -224,8 +222,7 @@ class UtilsTest extends TestCase
 ', $sss);
 
         $sss = Utils::renderContent($embedString, new Option(EmbedObjectMock::embeddedModel($embedString, '', 'blt8d49bb742bcf2c83')));
-        $this->assertEquals('<img src="URL" alt="title" />
-<p></p>
+        $this->assertEquals('<img src="URL" alt="title" /><p></p>
 <p></p>
 ', $sss);
     }
@@ -240,8 +237,7 @@ class UtilsTest extends TestCase
 '], $sss);
 
         $sss = Utils::renderContents([$embedString], new Option(EmbedObjectMock::embeddedModel([$embedString], '', 'blt8d49bb742bcf2c83')));
-        $this->assertEquals(['<img src="URL" alt="title" />
-<p></p>
+        $this->assertEquals(['<img src="URL" alt="title" /><p></p>
 <p></p>
 '], $sss);
     }
@@ -254,9 +250,7 @@ class UtilsTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new Option(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals('<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a href="blt55f6d8cbd7e03a1f">
-{{title}}
+        $this->assertEquals('<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a href="blt55f6d8cbd7e03a1f">{{title}}
 </a>', $sss);
     }
 
@@ -268,9 +262,7 @@ class UtilsTest extends TestCase
         $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new Option(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a href="blt55f6d8cbd7e03a1f">
-{{title}}
+        $this->assertEquals(['<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a href="blt55f6d8cbd7e03a1f">{{title}}
 </a>'], $sss);
     }
 
@@ -282,11 +274,8 @@ class UtilsTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new Option(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals('<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a href="blt55f6d8cbd7e03a1f">
-{{title}}
-</a>
-<span>blt55f6d8cbd7e03a1f</span>', $sss);
+        $this->assertEquals('<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a href="blt55f6d8cbd7e03a1f">{{title}}
+</a><span>blt55f6d8cbd7e03a1f</span>', $sss);
     }
 
     public function testEntryBlockLinkInlineArray(): void
@@ -297,11 +286,8 @@ class UtilsTest extends TestCase
         $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new Option(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a href="blt55f6d8cbd7e03a1f">
-{{title}}
-</a>
-<span>blt55f6d8cbd7e03a1f</span>'], $sss);
+        $this->assertEquals(['<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a href="blt55f6d8cbd7e03a1f">{{title}}
+</a><span>blt55f6d8cbd7e03a1f</span>'], $sss);
     }
 
 
@@ -313,12 +299,8 @@ class UtilsTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new Option(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f', )));
-        $this->assertEquals('
-<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a href="blt55f6d8cbd7e03a1f">
-{{title}}
-</a>
-<span>blt55f6d8cbd7e03a1f</span>', $sss);
+        $this->assertEquals('<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a href="blt55f6d8cbd7e03a1f">{{title}}
+</a><span>blt55f6d8cbd7e03a1f</span>', $sss);
     }
 
     public function testAllEmbedStylesArray(): void
@@ -329,11 +311,7 @@ class UtilsTest extends TestCase
         $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new Option(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['
-<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a href="blt55f6d8cbd7e03a1f">
-{{title}}
-</a>
-<span>blt55f6d8cbd7e03a1f</span>'], $sss);
+        $this->assertEquals(['<div><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a href="blt55f6d8cbd7e03a1f">{{title}}
+</a><span>blt55f6d8cbd7e03a1f</span>'], $sss);
     }
 }

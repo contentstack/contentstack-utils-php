@@ -197,8 +197,7 @@ class UtilsCustomOptionTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new CustomOptionMock(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals('<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
+        $this->assertEquals('<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
 </a>', $sss);
     }
 
@@ -210,8 +209,7 @@ class UtilsCustomOptionTest extends TestCase
         $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new CustomOptionMock(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
+        $this->assertEquals(['<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
 </a>'], $sss);
     }
 
@@ -220,8 +218,7 @@ class UtilsCustomOptionTest extends TestCase
         $embedString = AssetEmbed;
 
         $sss = Utils::renderContent($embedString, UtilsCustomOptionTest::$defaultRender);
-        $this->assertEquals('
-<p></p>
+        $this->assertEquals('<p></p>
 <p></p>
 ', $sss);
 
@@ -237,8 +234,7 @@ class UtilsCustomOptionTest extends TestCase
         $embedString = AssetEmbed;
 
         $sss = Utils::renderContents([$embedString], UtilsCustomOptionTest::$defaultRender);
-        $this->assertEquals(['
-<p></p>
+        $this->assertEquals(['<p></p>
 <p></p>
 '], $sss);
 
@@ -257,9 +253,7 @@ class UtilsCustomOptionTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new CustomOptionMock(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals('<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
+        $this->assertEquals('<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
 </a>', $sss);
     }
 
@@ -268,15 +262,10 @@ class UtilsCustomOptionTest extends TestCase
         $embedString = EntryBlock.EntryLink;
 
         $sss = Utils::renderContents([$embedString], UtilsCustomOptionTest::$defaultRender);
-        $this->assertEquals(['
-
-
-'], $sss);
+        $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new CustomOptionMock(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
+        $this->assertEquals(['<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
 </a>'], $sss);
     }
 
@@ -288,11 +277,8 @@ class UtilsCustomOptionTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new CustomOptionMock(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals('<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
-</a>
-<span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>', $sss);
+        $this->assertEquals('<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
+</a><span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>', $sss);
     }
 
     public function testEntryBlockLinkInlineArray(): void
@@ -303,11 +289,8 @@ class UtilsCustomOptionTest extends TestCase
         $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new CustomOptionMock(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
-</a>
-<span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>'], $sss);
+        $this->assertEquals(['<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
+</a><span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>'], $sss);
     }
 
 
@@ -319,12 +302,8 @@ class UtilsCustomOptionTest extends TestCase
         $this->assertEquals('', $sss);
 
         $sss = Utils::renderContent($embedString, new CustomOptionMock(EmbedObjectMock::embeddedModel($embedString, 'blt55f6d8cbd7e03a1f', )));
-        $this->assertEquals('
-<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
-</a>
-<span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>', $sss);
+        $this->assertEquals('<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
+</a><span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>', $sss);
     }
 
     public function testAllEmbedStylesArray(): void
@@ -335,11 +314,7 @@ class UtilsCustomOptionTest extends TestCase
         $this->assertEquals([''], $sss);
 
         $sss = Utils::renderContents([$embedString], new CustomOptionMock(EmbedObjectMock::embeddedModel([$embedString], 'blt55f6d8cbd7e03a1f')));
-        $this->assertEquals(['
-<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div>
-<a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >
-{{title}}
-</a>
-<span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>'], $sss);
+        $this->assertEquals(['<div class="embedded-entry block-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" sys-style-type="block" ><p>blt55f6d8cbd7e03a1f</p><p>Content type: <span>contentTypeUid</span></p></div><a class="embedded-entry link-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="link" >{{title}}
+</a><span class="embedded-entry inline-entry" type="entry" data-sys-entry-uid="blt55f6d8cbd7e03a1f" data-sys-content-type-uid="article" style="display:inline;" sys-style-type="inline" >blt55f6d8cbd7e03a1f</span>'], $sss);
     }
 }
