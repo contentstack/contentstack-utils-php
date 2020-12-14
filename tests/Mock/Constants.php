@@ -4,7 +4,6 @@ declare(strict_types=1);
 
 define('Blank', '');
 define('NoHTML', 'non html string');
-define('NoHTML', 'non html string');
 define('SimpleHTML', "<h1>Hello</h1> World");
 define('UnexpectedClose', '
 <figur2 class="embedded-asset" type="asset" data-sys-entry-uid="uid" data-sys-content-type-uid="data-sys-content-type-uid" style="display:inline;" sys-style-type="inline">
