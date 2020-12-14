@@ -223,8 +223,7 @@ class UtilsCustomOptionTest extends TestCase
 ', $sss);
 
         $sss = Utils::renderContent($embedString, new CustomOptionMock(EmbedObjectMock::embeddedModel($embedString, '', 'blt8d49bb742bcf2c83')));
-        $this->assertEquals('<img class="embedded-asset" data-sys-asset-filelink="https://images.contentstack.com/v3/assets/blt77263d300aee3e6b/blt8d49bb742bcf2c83/5f744bfcb3d3d20813386c10/clitud.jpeg" data-sys-asset-uid="blt8d49bb742bcf2c83" data-sys-asset-filename="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-contenttype="image/jpeg" data-sys-asset-alt="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-caption="somecaption" data-sys-asset-link="http://abc.com" data-sys-asset-position="center" data-sys-asset-isnewtab="true" type="asset" sys-style-type="display"  />
-<p></p>
+        $this->assertEquals('<img class="embedded-asset" data-sys-asset-filelink="https://images.contentstack.com/v3/assets/blt77263d300aee3e6b/blt8d49bb742bcf2c83/5f744bfcb3d3d20813386c10/clitud.jpeg" data-sys-asset-uid="blt8d49bb742bcf2c83" data-sys-asset-filename="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-contenttype="image/jpeg" data-sys-asset-alt="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-caption="somecaption" data-sys-asset-link="http://abc.com" data-sys-asset-position="center" data-sys-asset-isnewtab="true" type="asset" sys-style-type="display"  /><p></p>
 <p></p>
 ', $sss);
     }
@@ -239,8 +238,7 @@ class UtilsCustomOptionTest extends TestCase
 '], $sss);
 
         $sss = Utils::renderContents([$embedString], new CustomOptionMock(EmbedObjectMock::embeddedModel([$embedString], '', 'blt8d49bb742bcf2c83')));
-        $this->assertEquals(['<img class="embedded-asset" data-sys-asset-filelink="https://images.contentstack.com/v3/assets/blt77263d300aee3e6b/blt8d49bb742bcf2c83/5f744bfcb3d3d20813386c10/clitud.jpeg" data-sys-asset-uid="blt8d49bb742bcf2c83" data-sys-asset-filename="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-contenttype="image/jpeg" data-sys-asset-alt="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-caption="somecaption" data-sys-asset-link="http://abc.com" data-sys-asset-position="center" data-sys-asset-isnewtab="true" type="asset" sys-style-type="display"  />
-<p></p>
+        $this->assertEquals(['<img class="embedded-asset" data-sys-asset-filelink="https://images.contentstack.com/v3/assets/blt77263d300aee3e6b/blt8d49bb742bcf2c83/5f744bfcb3d3d20813386c10/clitud.jpeg" data-sys-asset-uid="blt8d49bb742bcf2c83" data-sys-asset-filename="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-contenttype="image/jpeg" data-sys-asset-alt="Cuvier-67_Autruche_d_Afrique.jpg" data-sys-asset-caption="somecaption" data-sys-asset-link="http://abc.com" data-sys-asset-position="center" data-sys-asset-isnewtab="true" type="asset" sys-style-type="display"  /><p></p>
 <p></p>
 '], $sss);
     }
