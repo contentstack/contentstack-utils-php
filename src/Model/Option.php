@@ -33,13 +33,13 @@ class Option implements RenderableInterface {
                 $resultString =  "<span>".($embeddedObject["title"] ?? $embeddedObject["uid"])."</span>";
             break;
             case StyleType::get(StyleType::LINK): 
-                $resultString =  "<a href=\"".($metadata->getAttribute("href") ?? $embeddedObject["url"] ?? $embeddedObject["title"] ?? $embeddedObject["uid"] )."\">".($metadata->getText() ?? $embeddedObject["title"] ?? $embeddedObject["uid"])."</a>";
+                $resultString =  "<a href=\"".($metadata->getAttribute("href")->value ?? $embeddedObject["url"] ?? $embeddedObject["title"] ?? $embeddedObject["uid"] )."\">".($metadata->getText() ?? $embeddedObject["title"] ?? $embeddedObject["uid"])."</a>";
             break;
             case StyleType::get(StyleType::DISPLAY): 
-                $resultString =  "<img src=\"".($metadata->getAttributes("src")->value ?? $embeddedObject["url"] )."\" alt=\"".($metadata->getAttributes()["alt"]->value ?? $embeddedObject["title"] ?? $embeddedObject["filename"] ?? $embeddedObject["uid"])."\" />";
+                $resultString =  "<img src=\"".($metadata->getAttribute("src")->value ?? $embeddedObject["url"] )."\" alt=\"".($metadata->getAttribute("alt")->value ?? $embeddedObject["title"] ?? $embeddedObject["filename"] ?? $embeddedObject["uid"])."\" />";
             break;
             case StyleType::get(StyleType::DOWNLOAD): 
-                $resultString =  "<a href=\"".($metadata->getAttributes("href")->value ?? $embeddedObject["url"])."\">".($metadata->getText() ?? $embeddedObject["filename"]?? $embeddedObject["title"] ?? $embeddedObject["uid"])."</a>";
+                $resultString =  "<a href=\"".($metadata->getAttribute("href")->value ?? $embeddedObject["url"])."\">".($metadata->getText() ?? $embeddedObject["filename"]?? $embeddedObject["title"] ?? $embeddedObject["uid"])."</a>";
             break;
         }
         return $resultString;

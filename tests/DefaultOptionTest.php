@@ -41,65 +41,65 @@ class DefaultOptionTest extends TestCase
     public function testEmbeddedContentTypeEntry(): void
     {
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK));
-        $this->assertEquals($resultString, '<div><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE));
-        $this->assertEquals($resultString, '<span>uid</span>');
+        $this->assertEquals('<span>uid</span>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK));
-        $this->assertEquals($resultString, '<a href=""></a>');
+        $this->assertEquals('<a href="uid"></a>', $resultString);
     }
 
     public function testEmbeddedEntry(): void
     {
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK));
-        $this->assertEquals($resultString, '<div><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE));
-        $this->assertEquals($resultString, '<span>title</span>');
+        $this->assertEquals('<span>title</span>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK));
-        $this->assertEquals($resultString, '<a href=""></a>');
+        $this->assertEquals('<a href="title"></a>', $resultString);
     }
 
     public function testEmbeddedAsset(): void
     {
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DISPLAY));
-        $this->assertEquals($resultString, '<img src="URL" alt="asset" />');
+        $this->assertEquals('<img src="URL" alt="title" />', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DOWNLOAD));
-        $this->assertEquals($resultString, '<a href="URL"></a>');
+        $this->assertEquals('<a href="URL"></a>', $resultString);
     }
     public function testEmbeddedContentTypeEntryWithText(): void
     {
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<div><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<span>uid</span>');
+        $this->assertEquals('<span>uid</span>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<a href="">Text To set Link</a>');
+        $this->assertEquals('<a href="uid">Text To set Link</a>', $resultString);
     }
 
     public function testEmbeddedEntryWithText(): void
     {
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<div><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<span>title</span>');
+        $this->assertEquals('<span>title</span>', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<a href="">Text To set Link</a>');
+        $this->assertEquals('<a href="title">Text To set Link</a>', $resultString);
     }
 
     public function testEmbeddedAssetWithText(): void
     {
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DISPLAY, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<img src="URL" alt="asset" />');
+        $this->assertEquals('<img src="URL" alt="title" />', $resultString);
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DOWNLOAD, DefaultOptionTest::$text));
-        $this->assertEquals($resultString, '<a href="URL">Text To set Link</a>');
+        $this->assertEquals('<a href="URL">Text To set Link</a>', $resultString);
     }
 }

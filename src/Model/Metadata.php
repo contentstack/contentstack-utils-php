@@ -88,9 +88,8 @@ class Metadata {
 
     public function getOuterHTML(): string
     {
-        $doc = new \DOMDocument();
-        $doc->appendChild($doc->importNode($this->element, true));
-        return $doc->saveHTML();
+        $doc = $this->element->ownerDocument;
+        return $doc->saveHTML($this->element);
     }
 
     public function getText(): string

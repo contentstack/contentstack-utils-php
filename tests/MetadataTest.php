@@ -28,33 +28,33 @@ class MetadataTest extends TestCase
     public function testBlankAttributes(): void
     {
         $metadata = new Metadata(Utility::getElement('<h1>TEST</h1>', '//h1')[0]);
-        $this->assertEquals($metadata->getItemType(), EmbedItemType::ENTRY());
-        $this->assertEquals($metadata->getStyleType(), StyleType::BLOCK());
-        $this->assertEquals($metadata->getItemUid(), '');
-        $this->assertEquals($metadata->getContentTypeUid(), '');
-        $this->assertEquals($metadata->getText(), 'TEST');
+        $this->assertEquals(EmbedItemType::ENTRY(), $metadata->getItemType());
+        $this->assertEquals(StyleType::BLOCK(), $metadata->getStyleType());
+        $this->assertEquals('', $metadata->getItemUid());
+        $this->assertEquals('', $metadata->getContentTypeUid());
+        $this->assertEquals('TEST', $metadata->getText());
     }
 
     public function testWrongAttributes(): void
     {
         $metadata = new Metadata(Utility::getElement('<h1 type="" sys-style-type="" data-sys-entry-uid="" data-sys-content-type-uid="">TEST</h1>', '//h1')[0]);
-        $this->assertEquals($metadata->getItemType(), EmbedItemType::ENTRY());
-        $this->assertEquals($metadata->getStyleType(), StyleType::BLOCK());
-        $this->assertEquals($metadata->getItemUid(), '');
-        $this->assertEquals($metadata->getContentTypeUid(), '');
-        $this->assertEquals($metadata->getText(), 'TEST');
+        $this->assertEquals(EmbedItemType::ENTRY(), $metadata->getItemType());
+        $this->assertEquals(StyleType::BLOCK(), $metadata->getStyleType());
+        $this->assertEquals('', $metadata->getItemUid());
+        $this->assertEquals('', $metadata->getContentTypeUid());
+        $this->assertEquals('TEST', $metadata->getText());
     }
 
     public function testAttributes(): void
     {
         $metadata = new Metadata(Utility::getElement('<h1 type="asset" sys-style-type="inline" data-sys-entry-uid="uid" data-sys-content-type-uid="contentType">
 TEST</h1>', '//h1')[0]);
-        $this->assertEquals($metadata->getItemType(), EmbedItemType::ASSET());
-        $this->assertEquals($metadata->getStyleType(), StyleType::INLINE());
-        $this->assertEquals($metadata->getItemUid(), 'uid');
-        $this->assertEquals($metadata->getContentTypeUid(), 'contentType');
-        $this->assertEquals($metadata->getText(), '
-TEST');
+        $this->assertEquals(EmbedItemType::ASSET(), $metadata->getItemType());
+        $this->assertEquals(StyleType::INLINE(), $metadata->getStyleType());
+        $this->assertEquals('uid', $metadata->getItemUid());
+        $this->assertEquals('contentType', $metadata->getContentTypeUid());
+        $this->assertEquals('
+TEST', $metadata->getText());
     }
 
     public function testAssetUidAttributes(): void
@@ -62,12 +62,12 @@ TEST');
         $html = '<h1 type="asset" sys-style-type="inline" data-sys-asset-uid="assetuid">TEST</h1>';
         $element = Utility::getElement($html, '//h1')[0];
         $metadata = new Metadata($element);
-        $this->assertEquals($metadata->getItemType(), EmbedItemType::ASSET());
-        $this->assertEquals($metadata->getStyleType(), StyleType::INLINE());
-        $this->assertEquals($metadata->getItemUid(), 'assetuid');
-        $this->assertEquals($metadata->getContentTypeUid(), '');
-        $this->assertEquals($metadata->getText(), 'TEST');
-        $this->assertEquals($metadata->getOuterHTML(), Utility::getOuterHTML($element));
-        $this->assertEquals($metadata->getAttributes(), $element->attributes);
+        $this->assertEquals(EmbedItemType::ASSET(), $metadata->getItemType());
+        $this->assertEquals(StyleType::INLINE(), $metadata->getStyleType());
+        $this->assertEquals('assetuid', $metadata->getItemUid());
+        $this->assertEquals('', $metadata->getContentTypeUid());
+        $this->assertEquals('TEST', $metadata->getText());
+        $this->assertEquals(Utility::getOuterHTML($element), $metadata->getOuterHTML());
+        $this->assertEquals($element->attributes, $metadata->getAttributes());
     }
 }

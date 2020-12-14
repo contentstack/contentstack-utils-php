@@ -35,8 +35,7 @@ class Utility
 
     public static function getOuterHTML($element): string
     {
-        $doc = new \DOMDocument();
-        $doc->appendChild($doc->importNode($element, true));
-        return $doc->saveHTML();
+        $doc = $element->ownerDocument;
+        return $doc->saveHTML($element);
     }
 }

@@ -42,65 +42,65 @@ class CustomOptionTest extends TestCase
     public function testEmbeddedContentTypeEntry(): void
     {
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK));
-        $this->assertEquals($resultString, '<div type="entry" sys-style-type="block" ><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div type="entry" sys-style-type="block" ><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE));
-        $this->assertEquals($resultString, '<span type="entry" sys-style-type="inline" >uid</span>');
+        $this->assertEquals('<span type="entry" sys-style-type="inline" >uid</span>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK));
-        $this->assertEquals($resultString, '<a type="entry" sys-style-type="link" ></a>');
+        $this->assertEquals('<a type="entry" sys-style-type="link" ></a>', $resultString);
     }
 
     public function testEmbeddedEntry(): void
     {
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK));
-        $this->assertEquals($resultString, '<div type="entry" sys-style-type="block" ><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div type="entry" sys-style-type="block" ><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE));
-        $this->assertEquals($resultString, '<span type="entry" sys-style-type="inline" >title</span>');
+        $this->assertEquals('<span type="entry" sys-style-type="inline" >title</span>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK));
-        $this->assertEquals($resultString, '<a type="entry" sys-style-type="link" ></a>');
+        $this->assertEquals('<a type="entry" sys-style-type="link" ></a>', $resultString);
     }
 
     public function testEmbeddedAsset(): void
     {
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DISPLAY));
-        $this->assertEquals($resultString, '<img type="asset" sys-style-type="display"  />');
+        $this->assertEquals('<img type="asset" sys-style-type="display"  />', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DOWNLOAD));
-        $this->assertEquals($resultString, '<a type="asset" sys-style-type="download" ></a>');
+        $this->assertEquals('<a type="asset" sys-style-type="download" ></a>', $resultString);
     }
     public function testEmbeddedContentTypeEntryWithText(): void
     {
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<div type="entry" sys-style-type="block" ><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div type="entry" sys-style-type="block" ><p>uid</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<span type="entry" sys-style-type="inline" >uid</span>');
+        $this->assertEquals('<span type="entry" sys-style-type="inline" >uid</span>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedContentType, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<a type="entry" sys-style-type="link" >Text To set Link</a>');
+        $this->assertEquals('<a type="entry" sys-style-type="link" >Text To set Link</a>', $resultString);
     }
 
     public function testEmbeddedEntryWithText(): void
     {
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::BLOCK, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<div type="entry" sys-style-type="block" ><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>');
+        $this->assertEquals('<div type="entry" sys-style-type="block" ><p>title</p><p>Content type: <span>contentTypeUid</span></p></div>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::INLINE, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<span type="entry" sys-style-type="inline" >title</span>');
+        $this->assertEquals('<span type="entry" sys-style-type="inline" >title</span>', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedEntry, $this->getMetadata(EmbedItemType::ENTRY, StyleType::LINK, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<a type="entry" sys-style-type="link" >Text To set Link</a>');
+        $this->assertEquals('<a type="entry" sys-style-type="link" >Text To set Link</a>', $resultString);
     }
 
     public function testEmbeddedAssetWithText(): void
     {
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DISPLAY, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<img type="asset" sys-style-type="display"  />');
+        $this->assertEquals('<img type="asset" sys-style-type="display"  />', $resultString);
 
         $resultString = CustomOptionTest::$customeRender->renderOptions(CustomOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DOWNLOAD, CustomOptionTest::$text));
-        $this->assertEquals($resultString, '<a type="asset" sys-style-type="download" >Text To set Link</a>');
+        $this->assertEquals('<a type="asset" sys-style-type="download" >Text To set Link</a>', $resultString);
     }
 }
