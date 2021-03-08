@@ -28,7 +28,7 @@ jobs:
 
     - name: Install dependencies
       if: steps.composer-cache.outputs.cache-hit != 'true'
-      run: composer install --prefer-dist --no-progress --no-suggest --ignore-platform-reqs
+      run: XDEBUG_MODE=off composer install --prefer-dist --no-progress --no-suggest --ignore-platform-reqs
 
     - name: Run test suite
       run: composer run-script test
