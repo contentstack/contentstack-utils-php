@@ -29,7 +29,7 @@ To render embedded items on the front-end, use the renderOptions function, and d
 
 declare(strict_types=1);  
 
-namespace Sample/App;  
+namespace Sample\App;  
   
 use Contentstack\Utils\Resource\EntryEmbedable;  
 use Contentstack\Utils\Resource\RenderableInterface;  
