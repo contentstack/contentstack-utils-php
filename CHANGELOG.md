@@ -1,22 +1,4 @@
 # Changelog
 
-All notable changes to `utils` will be documented in this file.
-
-Updates should follow the [Keep a CHANGELOG](http://keepachangelog.com/) principles.
-
-## NEXT - YYYY-MM-DD
-
-### Added
-- Nothing
-
-### Deprecated
-- Nothing
-
-### Fixed
-- Nothing
-
-### Removed
-- Nothing
-
-### Security
-- Nothing
+## [1.0.0](https://github.com/contentstack/contentstack-utils-php/tree/v1.0.0) (2021-04-05)
+  - Initial release for Contentstack Utils SDK
