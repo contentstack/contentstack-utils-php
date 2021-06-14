@@ -8,6 +8,7 @@ use Contentstack\Utils\Resource\EntryEmbedable;
 use Contentstack\Utils\Resource\RenderableInterface;
 use Contentstack\Utils\Resource\EmbeddedObject;
 use Contentstack\Utils\Enum\StyleType;
+use Contentstack\Utils\Enum\MarkType;
 
 class Option implements RenderableInterface {
 
@@ -17,9 +18,39 @@ class Option implements RenderableInterface {
      
     public $entry;
 
-    public function __construct(array $entry)
+    public function __construct(array $entry = null)
     {
         $this->entry = $entry;
+    }
+    
+    function renderMark(MarkType $markType, string $text): string
+    {
+        $resultString = "";
+
+        switch ($markType) {
+            case MarkType::get(MarkType::BOLD):
+                $resultString = "<strong>".$text."</strong>";
+                break;
+            case MarkType::get(MarkType::ITALIC):
+                $resultString = "<em>".$text."</em>";
+                break;
+            case MarkType::get(MarkType::UNDERLINE):
+                $resultString = "<u>".$text."</u>";
+                break;
+            case MarkType::get(MarkType::STRIKE_THROUGH):
+                $resultString = "<strike>".$text."</strike>";
+                break;
+            case MarkType::get(MarkType::INLINE_CODE):
+                $resultString = "<span>".$text."</span>";
+                break;
+            case MarkType::get(MarkType::SUBSCRIPT):
+                $resultString = "<sub>".$text."</sub>";
+                break;
+            case MarkType::get(MarkType::SUPERSCRIPT):
+                $resultString = "<sup>".$text."</sup>";
+                break;
+        }
+        return $resultString;
     }
 
     function renderOptions(array $embeddedObject, Metadata $metadata): string

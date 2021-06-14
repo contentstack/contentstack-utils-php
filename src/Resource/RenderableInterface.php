@@ -5,6 +5,7 @@ namespace Contentstack\Utils\Resource;
 
 use Contentstack\Utils\Enum\EmbedItemType;
 use Contentstack\Utils\Model\Metadata;
+use Contentstack\Utils\Enum\MarkType;
 
 interface RenderableInterface 
 {
@@ -13,4 +14,10 @@ interface RenderableInterface
      * @param $metadata - Tag details and attributes
      */
     function renderOptions(array $embeddedObject, Metadata $metadata): string;
+
+    /**
+     * @param $markType - MarkType for the text content
+     * @param $text - Text content for rendering
+     */
+    function renderMark(MarkType $markType, string $text): string;
 }

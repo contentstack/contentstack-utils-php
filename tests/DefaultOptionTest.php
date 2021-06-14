@@ -10,6 +10,7 @@ require_once __DIR__ . '/Mock/EmbedObjectMock.php';
 use Contentstack\Utils\Utils;
 use Contentstack\Utils\Enum\EmbedItemType;
 use Contentstack\Utils\Enum\StyleType;
+use Contentstack\Utils\Enum\MarkType;
 use Contentstack\Utils\Model\Metadata;
 use Contentstack\Utils\Model\Option;
 use PHPUnit\Framework\TestCase;
@@ -101,5 +102,23 @@ class DefaultOptionTest extends TestCase
 
         $resultString = DefaultOptionTest::$defaultRender->renderOptions(DefaultOptionTest::$embeddedAsset, $this->getMetadata(EmbedItemType::ASSET, StyleType::DOWNLOAD, DefaultOptionTest::$text));
         $this->assertEquals('<a href="URL">Text To set Link</a>', $resultString);
+    }
+
+    public function testShouldReturnMarkTypeHtmlContent(): void 
+    {        
+        $boldString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::BOLD), DefaultOptionTest::$text);
+        $this->assertEquals("<strong>".DefaultOptionTest::$text."</strong>", $boldString);
+        $italicString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::ITALIC), DefaultOptionTest::$text);
+        $this->assertEquals("<em>".DefaultOptionTest::$text."</em>", $italicString);
+        $underlineString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::UNDERLINE), DefaultOptionTest::$text);
+        $this->assertEquals("<u>".DefaultOptionTest::$text."</u>", $underlineString);
+        $strickthroughString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::STRIKE_THROUGH), DefaultOptionTest::$text);
+        $this->assertEquals("<strike>".DefaultOptionTest::$text."</strike>", $strickthroughString);
+        $inlineCodeString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::INLINE_CODE), DefaultOptionTest::$text);
+        $this->assertEquals("<span>".DefaultOptionTest::$text."</span>", $inlineCodeString);
+        $subscriptString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::SUBSCRIPT), DefaultOptionTest::$text);
+        $this->assertEquals("<sub>".DefaultOptionTest::$text."</sub>", $subscriptString);
+        $superscriptString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::SUPERSCRIPT), DefaultOptionTest::$text);
+        $this->assertEquals("<sup>".DefaultOptionTest::$text."</sup>", $superscriptString);
     }
 }
