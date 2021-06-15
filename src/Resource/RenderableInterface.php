@@ -6,6 +6,7 @@ namespace Contentstack\Utils\Resource;
 use Contentstack\Utils\Enum\EmbedItemType;
 use Contentstack\Utils\Model\Metadata;
 use Contentstack\Utils\Enum\MarkType;
+use Contentstack\Utils\Enum\NodeType;
 
 interface RenderableInterface 
 {
@@ -20,4 +21,11 @@ interface RenderableInterface
      * @param $text - Text content for rendering
      */
     function renderMark(MarkType $markType, string $text): string;
+
+    /**
+     * @param $nodeType - NodeType for the text content
+     * @param $node - Json node content for rendering
+     * @param $innerHtml - Child Html content for the node
+     */
+    function renderNode(NodeType $nodeType, object $node, string $innerHtml): string;
 }

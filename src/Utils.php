@@ -68,10 +68,11 @@ class Utils
     }
 
     public static function jsonToHtml(object $content, Option $option): string {
-        if ($content->children != null) {
-            return Utils::nodeChildrenToHtml($content->children, $option);
+        $resultHtml = '';
+        if (isset($content->children)) {
+            $resultHtml = Utils::nodeChildrenToHtml($content->children, $option);
         }
-        return '';
+        return $resultHtml;
     }
 
     private static function nodeChildrenToHtml(array $nodes, Option $option): string {
@@ -88,6 +89,16 @@ class Utils
                     $resultHtml = Utils::referenceToHtml($node, $option);
                     break;
                 default:
+                    $innerHtml = "";
+                    if (isset($node->children)) 
+                    {
+                        $innerHtml = Utils::nodeChildrenToHtml($node->children, $option);
+                    }
+                    $resultHtml = $option->renderNode(
+                        NodeType::byValue($node->type), 
+                        $node, 
+                        $innerHtml
+                    );
                     break;
             }
         } else {
