@@ -18,6 +18,10 @@ define('BlockquoteHtml', '<blockquote>Praesent eu ex sed nibh venenatis pretium.
 define('CodeHtml', '<code>Code template.</code>');
 define('LinkInPHtml', '<p><strong><em><u><sub></sub></u></em></strong><a href="LINK.com">LINK</a></p>');
 define('EmbedHtml', '<iframe src="https://www.youtube.com/watch?v=AOP0yARiW8U"></iframe>');
+define('AssetReferenceHtml', '<img src="URL" alt="title" />');
+define('EntryReferenceBlockHtml', '<div><p>blttitleuid</p><p>Content type: <span>contentTypeUid</span></p></div>');
+define('EntryReferenceLinkHtml', '<a href="bltemmbedEntryuid">/copy-of-entry-final-02</a>');
+define('EntryReferenceInlineHtml', '<span>blttitleUpdateuid</span>');
 
 define('BlankDocument', '{ "uid":"06e34a7a4e5d7fc2acd", "_version":13, "attrs":{ }, "children":[],"type":"doc"}');
 define('PlainTextJson', '{ "uid":"06e34a7a4e5d7fc2acd", "_version":13, "attrs":{ }, "children":[{"text":"Aliquam sit amet libero dapibus, eleifend ligula at, varius justo","bold":true},{ "text":"Lorem ipsum","bold":true,"italic":true},{ "text":"dolor sit amet","bold":true,"italic":true,"underline":true},{ "text":"consectetur adipiscing elit.","bold":true,"italic":true,"underline":true,"strikethrough":true},{ "text":"Sed condimentum iaculis magna in vehicula. ","bold":true,"italic":true,"underline":true,"inlineCode":true},{ "text":"Vestibulum vitae convallis ","bold":true,"italic":true,"underline":true,"superscript":true},{ "text":" lacus. ","bold":true,"italic":true,"underline":true,"subscript":true}],"type":"doc"}');

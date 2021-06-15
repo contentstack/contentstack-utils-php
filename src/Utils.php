@@ -82,9 +82,10 @@ class Utils
 
     private static function nodeToHtml(object $node, Option $option): string {
         $resultHtml = '';
-        if ($node->type != null) {
+        if (isset($node->type)) {
             switch ($node->type) {
-                case NodeType::get(NodeType::REFERENCE):
+                case NodeType::get(NodeType::REFERENCE)->getValue():
+                    $resultHtml = Utils::referenceToHtml($node, $option);
                     break;
                 default:
                     break;
@@ -95,30 +96,44 @@ class Utils
         return $resultHtml;
     }
 
-    private static function textToHtml(object $node, Option $option) {
+    private static function textToHtml(object $node, Option $option) 
+    {
         $text = $node->text;
-        if ($node->superscript) {
+        if (isset($node->superscript) && $node->superscript) {
             $text = $option->renderMark(MarkType::get(MarkType::SUPERSCRIPT), $text);
         }
-        if ($node->subscript) {
+        if (isset($node->subscript) && $node->subscript) {
             $text = $option->renderMark(MarkType::get(MarkType::SUBSCRIPT), $text);
         }
-        if ($node->inlineCode) {
+        if (isset($node->inlineCode) && $node->inlineCode) {
             $text = $option->renderMark(MarkType::get(MarkType::INLINE_CODE), $text);
         }
-        if ($node->strikethrough) {
+        if (isset($node->strikethrough) && $node->strikethrough) {
             $text = $option->renderMark(MarkType::get(MarkType::STRIKE_THROUGH), $text);
         }
-        if ($node->underline) {
+        if (isset($node->underline) && $node->underline) {
             $text = $option->renderMark(MarkType::get(MarkType::UNDERLINE), $text);
         }
-        if ($node->italic) {
+        if (isset($node->italic) && $node->italic) {
             $text = $option->renderMark(MarkType::get(MarkType::ITALIC), $text);
         }
-        if ($node->bold) {
+        if (isset($node->bold) && $node->bold) {
             $text = $option->renderMark(MarkType::get(MarkType::BOLD), $text);
         }
         return $text;
+    }
+
+    private static function referenceToHtml(object $node, Option $option) 
+    {
+        $resultHtml = '';
+        if ($option->entry) {
+            $metadata = new Metadata($node);
+            $object = Utils::findObject($metadata, $option->entry);
+            if (count($object) > 0) {
+                $resultHtml = $option->renderOptions($object, $metadata);
+            }
+        }
+        return $resultHtml;
     }
 
     private static function findEmbeddedObject(\DOMDocument $doc): array {

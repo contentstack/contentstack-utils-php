@@ -51,4 +51,74 @@ class UtilsJsonToHtmlTest extends TestCase
         $sss = Utils::jsonArrayToHtml([$jsonObject], new Option());
         $this->assertEquals([PlainTextHtml], $sss);
     }
+
+    public function testShouldReturnEmptyStringOnAssetReference(): void
+    {
+        $jsonObject = json_decode(AssetReferenceJson);
+        $sss = Utils::jsonToHtml($jsonObject, new Option());
+        $this->assertEquals('', $sss);
+    }
+
+    public function testShouldReturnEmptyStringOnArrayAssetReference(): void
+    {
+        $jsonObject = json_decode(AssetReferenceJson);
+        $sss = Utils::jsonArrayToHtml([$jsonObject], new Option());
+        $this->assertEquals([''], $sss);
+    }
+
+    public function testShouldReturnEmbeddedAssetOnAssetReference(): void
+    {
+        $jsonObject = json_decode(AssetReferenceJson);
+        $sss = Utils::jsonToHtml($jsonObject, new Option(EmbedObjectMock::embeddedModel('', '', 'blt44asset')));
+        $this->assertEquals(AssetReferenceHtml, $sss);
+    }
+
+    public function testShouldReturnEmbeddedAssetOnArrayAssetReference(): void
+    {
+        $jsonObject = json_decode(AssetReferenceJson);
+        $sss = Utils::jsonArrayToHtml([$jsonObject], new Option(EmbedObjectMock::embeddedModel('', '', 'blt44asset')));
+        $this->assertEquals([AssetReferenceHtml], $sss);
+    }
+
+    public function testShouldReturnEmbeddedEntryOnEntryBlockReference(): void
+    {
+        $jsonObject = json_decode(EntryReferenceBlockJson);
+        $sss = Utils::jsonToHtml($jsonObject, new Option(EmbedObjectMock::embeddedModel('', 'blttitleuid', 'blt44asset')));
+        $this->assertEquals(EntryReferenceBlockHtml, $sss);
+    }
+
+    public function testShouldReturnEmbeddedEntryOnArrayEntryBlockReference(): void
+    {
+        $jsonObject = json_decode(EntryReferenceBlockJson);
+        $sss = Utils::jsonArrayToHtml([$jsonObject], new Option(EmbedObjectMock::embeddedModel('', 'blttitleuid', 'blt44asset')));
+        $this->assertEquals([EntryReferenceBlockHtml], $sss);
+    }
+
+    public function testShouldReturnEmbeddedEntryOnEntryLinkReference(): void
+    {
+        $jsonObject = json_decode(EntryReferenceLinkJson);
+        $sss = Utils::jsonToHtml($jsonObject, new Option(EmbedObjectMock::embeddedModel('', 'bltemmbedEntryuid', 'blt44asset')));
+        $this->assertEquals(EntryReferenceLinkHtml, $sss);
+    }
+
+    public function testShouldReturnEmbeddedEntryOnArrayEntryLinkReference(): void
+    {
+        $jsonObject = json_decode(EntryReferenceLinkJson);
+        $sss = Utils::jsonArrayToHtml([$jsonObject], new Option(EmbedObjectMock::embeddedModel('', 'bltemmbedEntryuid', 'blt44asset')));
+        $this->assertEquals([EntryReferenceLinkHtml], $sss);
+    }
+
+    public function testShouldReturnEmbeddedEntryOnEntryInlineReference(): void
+    {
+        $jsonObject = json_decode(EntryReferenceInlineJson);
+        $sss = Utils::jsonToHtml($jsonObject, new Option(EmbedObjectMock::embeddedModel('', 'blttitleUpdateuid', 'blt44asset')));
+        $this->assertEquals(EntryReferenceInlineHtml, $sss);
+    }
+
+    public function testShouldReturnEmbeddedEntryOnArrayEntryInlineReference(): void
+    {
+        $jsonObject = json_decode(EntryReferenceInlineJson);
+        $sss = Utils::jsonArrayToHtml([$jsonObject], new Option(EmbedObjectMock::embeddedModel('', 'blttitleUpdateuid', 'blt44asset')));
+        $this->assertEquals([EntryReferenceInlineHtml], $sss);
+    }
 }
