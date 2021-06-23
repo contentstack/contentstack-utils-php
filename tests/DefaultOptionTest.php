@@ -127,7 +127,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::PARAGRAPH), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::PARAGRAPH)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<p>".DefaultOptionTest::$text."</p>", $resultString);
     }
@@ -136,7 +136,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::LINK), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::LINK)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<a href=\"\">".DefaultOptionTest::$text."</a>", $resultString);
     }
@@ -145,7 +145,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::IMAGE), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::IMAGE)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<img src=\"\" />".DefaultOptionTest::$text, $resultString);
     }
@@ -154,7 +154,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::EMBED), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::EMBED)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<iframe src=\"\">".DefaultOptionTest::$text."</iframe>", $resultString);
     }
@@ -163,7 +163,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_1), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_1)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<h1>".DefaultOptionTest::$text."</h1>", $resultString);
     }
@@ -172,7 +172,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_2), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_2)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<h2>".DefaultOptionTest::$text."</h2>", $resultString);
     }
@@ -181,7 +181,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_3), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_3)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<h3>".DefaultOptionTest::$text."</h3>", $resultString);
     }
@@ -190,7 +190,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_4), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_4)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<h4>".DefaultOptionTest::$text."</h4>", $resultString);
     }
@@ -199,7 +199,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_5), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_5)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<h5>".DefaultOptionTest::$text."</h5>", $resultString);
     }
@@ -208,7 +208,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_6), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HEADING_6)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<h6>".DefaultOptionTest::$text."</h6>", $resultString);
     }
@@ -217,7 +217,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HR), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::HR)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<hr>", $resultString);
     }
@@ -226,7 +226,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<table>".DefaultOptionTest::$text."</table>", $resultString);
     }
@@ -235,7 +235,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_HEADER), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_HEADER)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<thead>".DefaultOptionTest::$text."</thead>", $resultString);
     }
@@ -244,7 +244,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_BODY), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_BODY)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<tbody>".DefaultOptionTest::$text."</tbody>", $resultString);
     }
@@ -253,7 +253,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_FOOTER), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_FOOTER)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<tfoot>".DefaultOptionTest::$text."</tfoot>", $resultString);
     }
@@ -262,7 +262,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_ROW), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_ROW)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<tr>".DefaultOptionTest::$text."</tr>", $resultString);
     }
@@ -271,7 +271,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_HEAD), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_HEAD)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<th>".DefaultOptionTest::$text."</th>", $resultString);
     }
@@ -280,7 +280,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_DATA), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TABLE_DATA)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<td>".DefaultOptionTest::$text."</td>", $resultString);
     }
@@ -289,7 +289,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::BLOCK_QUOTE), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::BLOCK_QUOTE)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<blockquote>".DefaultOptionTest::$text."</blockquote>", $resultString);
     }
@@ -298,7 +298,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::CODE), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::CODE)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals("<code>".DefaultOptionTest::$text."</code>", $resultString);
     }
@@ -307,7 +307,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::REFERENCE), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::REFERENCE)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals(DefaultOptionTest::$text, $resultString);
     }
@@ -316,7 +316,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TEXT), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::TEXT)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals(DefaultOptionTest::$text, $resultString);
     }
@@ -325,7 +325,7 @@ class DefaultOptionTest extends TestCase
     {
         $node = json_decode(BlankDocument);
 
-        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::DOCUMENT), $node, DefaultOptionTest::$text);
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::DOCUMENT)->getValue(), $node, DefaultOptionTest::$text);
 
         $this->assertEquals(DefaultOptionTest::$text, $resultString);
     }

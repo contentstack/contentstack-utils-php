@@ -54,79 +54,79 @@ class Option implements RenderableInterface {
         return $resultString;
     }
 
-    function renderNode(NodeType $nodeType, object $node, string $innerHtml): string 
+    function renderNode(string $nodeType, object $node, string $innerHtml): string 
     {
         $resultString = "";
         $attrs = get_object_vars($node->attrs);
         switch ($nodeType) 
         {
-            case NodeType::get(NodeType::PARAGRAPH):
+            case NodeType::get(NodeType::PARAGRAPH)->getValue():
                 $resultString = "<p>".$innerHtml."</p>";
                 break;
-            case NodeType::get(NodeType::LINK):
+            case NodeType::get(NodeType::LINK)->getValue():
                 $resultString = "<a href=\"".($attrs["url"] ?? "")."\">".$innerHtml."</a>";
                 break;
-            case NodeType::get(NodeType::IMAGE):
+            case NodeType::get(NodeType::IMAGE)->getValue():
                 $resultString = "<img src=\"".($attrs["url"] ?? "")."\" />".$innerHtml;
                 break;
-            case NodeType::get(NodeType::EMBED):
+            case NodeType::get(NodeType::EMBED)->getValue():
                 $resultString = "<iframe src=\"".($attrs["url"] ?? "")."\">".$innerHtml."</iframe>";
                 break;
-            case NodeType::get(NodeType::HEADING_1):
+            case NodeType::get(NodeType::HEADING_1)->getValue():
                 $resultString = "<h1>".$innerHtml."</h1>";
                 break;
-            case NodeType::get(NodeType::HEADING_2):
+            case NodeType::get(NodeType::HEADING_2)->getValue():
                 $resultString = "<h2>".$innerHtml."</h2>";
                 break;
-            case NodeType::get(NodeType::HEADING_3):
+            case NodeType::get(NodeType::HEADING_3)->getValue():
                 $resultString = "<h3>".$innerHtml."</h3>";
                 break;
-            case NodeType::get(NodeType::HEADING_4):
+            case NodeType::get(NodeType::HEADING_4)->getValue():
                 $resultString = "<h4>".$innerHtml."</h4>";
                 break;
-            case NodeType::get(NodeType::HEADING_5):
+            case NodeType::get(NodeType::HEADING_5)->getValue():
                 $resultString = "<h5>".$innerHtml."</h5>";
                 break;
-            case NodeType::get(NodeType::HEADING_6):
+            case NodeType::get(NodeType::HEADING_6)->getValue():
                 $resultString = "<h6>".$innerHtml."</h6>";
                 break;
-            case NodeType::get(NodeType::ORDER_LIST):
+            case NodeType::get(NodeType::ORDER_LIST)->getValue():
                 $resultString = "<ol>".$innerHtml."</ol>";
                 break;
-            case NodeType::get(NodeType::UNORDER_LIST):
+            case NodeType::get(NodeType::UNORDER_LIST)->getValue():
                 $resultString = "<ul>".$innerHtml."</ul>";
                 break;
-            case NodeType::get(NodeType::LIST_ITEM):
+            case NodeType::get(NodeType::LIST_ITEM)->getValue():
                 $resultString = "<li>".$innerHtml."</li>";
                 break;
-            case NodeType::get(NodeType::HR):
+            case NodeType::get(NodeType::HR)->getValue():
                 $resultString = "<hr>";
                 break;
-            case NodeType::get(NodeType::TABLE):
+            case NodeType::get(NodeType::TABLE)->getValue():
                 $resultString = "<table>".$innerHtml."</table>";
                 break;
-            case NodeType::get(NodeType::TABLE_HEADER):
+            case NodeType::get(NodeType::TABLE_HEADER)->getValue():
                 $resultString = "<thead>".$innerHtml."</thead>";
                 break;
-            case NodeType::get(NodeType::TABLE_BODY):
+            case NodeType::get(NodeType::TABLE_BODY)->getValue():
                 $resultString = "<tbody>".$innerHtml."</tbody>";
                 break;
-            case NodeType::get(NodeType::TABLE_FOOTER):
+            case NodeType::get(NodeType::TABLE_FOOTER)->getValue():
                 $resultString = "<tfoot>".$innerHtml."</tfoot>";
                 break;
-            case NodeType::get(NodeType::TABLE_ROW):
+            case NodeType::get(NodeType::TABLE_ROW)->getValue():
                 $resultString = "<tr>".$innerHtml."</tr>";
                 break;
-            case NodeType::get(NodeType::TABLE_HEAD):
+            case NodeType::get(NodeType::TABLE_HEAD)->getValue():
                 $resultString = "<th>".$innerHtml."</th>";
                 break;
-            case NodeType::get(NodeType::TABLE_DATA):
+            case NodeType::get(NodeType::TABLE_DATA)->getValue():
                 $resultString = "<td>".$innerHtml."</td>";
                 break;
-            case NodeType::get(NodeType::BLOCK_QUOTE):
+            case NodeType::get(NodeType::BLOCK_QUOTE)->getValue():
                 $resultString = "<blockquote>".$innerHtml."</blockquote>";
                 break;
-            case NodeType::get(NodeType::CODE):
+            case NodeType::get(NodeType::CODE)->getValue():
                 $resultString = "<code>".$innerHtml."</code>";
                 break;
             default:

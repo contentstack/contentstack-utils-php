@@ -95,7 +95,7 @@ class Utils
                         $innerHtml = Utils::nodeChildrenToHtml($node->children, $option);
                     }
                     $resultHtml = $option->renderNode(
-                        NodeType::byValue($node->type), 
+                        $node->type, 
                         $node, 
                         $innerHtml
                     );

@@ -51,13 +51,13 @@ class  CustomOption  extends  Option {
                 return parent::renderMark($markType, $text);
         }
     }
-    function renderNode(NodeType $nodeType, object $node, string $innerHtml): string 
+    function renderNode(string $nodeType, object $node, string $innerHtml): string 
     {
         switch ($nodeType)
         {
-            case NodeType::get(NodeType::PARAGRAPH):
+            case "p":
                 return "<p class='class-id'>".$innerHtml."</p>";
-            case NodeType::get(NodeType::HEADING_1):
+            case "h1":
                 return "<h1 class='class-id'>".$innerHtml."</h1>";
             default:
                 return parent::renderNode($nodeType, $node, $innerHtml);

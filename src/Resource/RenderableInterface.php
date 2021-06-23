@@ -27,5 +27,5 @@ interface RenderableInterface
      * @param $node - Json node content for rendering
      * @param $innerHtml - Child Html content for the node
      */
-    function renderNode(NodeType $nodeType, object $node, string $innerHtml): string;
+    function renderNode(string $nodeType, object $node, string $innerHtml): string;
 }
