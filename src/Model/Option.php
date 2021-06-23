@@ -64,13 +64,13 @@ class Option implements RenderableInterface {
                 $resultString = "<p>".$innerHtml."</p>";
                 break;
             case NodeType::get(NodeType::LINK)->getValue():
-                $resultString = "<a href=\"".($attrs["url"] ?? "")."\">".$innerHtml."</a>";
+                $resultString = "<a href=\"".($attrs["href"] ?? "")."\">".$innerHtml."</a>";
                 break;
             case NodeType::get(NodeType::IMAGE)->getValue():
-                $resultString = "<img src=\"".($attrs["url"] ?? "")."\" />".$innerHtml;
+                $resultString = "<img src=\"".($attrs["src"] ?? "")."\" />".$innerHtml;
                 break;
             case NodeType::get(NodeType::EMBED)->getValue():
-                $resultString = "<iframe src=\"".($attrs["url"] ?? "")."\">".$innerHtml."</iframe>";
+                $resultString = "<iframe src=\"".($attrs["src"] ?? "")."\">".$innerHtml."</iframe>";
                 break;
             case NodeType::get(NodeType::HEADING_1)->getValue():
                 $resultString = "<h1>".$innerHtml."</h1>";
