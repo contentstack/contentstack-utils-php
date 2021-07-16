@@ -36,9 +36,33 @@ use Contentstack\Utils\Resource\RenderableInterface;
 use Contentstack\Utils\Resource\EmbeddedObject;  
 use Contentstack\Utils\Model\Option;  
 use Contentstack\Utils\Model\Metadata;  
-use Contentstack\Utils\Enum\StyleType;  
-  
-class  CustomOption  extends  Option  {  
+use Contentstack\Utils\Enum\StyleType;
+use Contentstack\Utils\Enum\NodeType;
+use Contentstack\Utils\Enum\MarkType;
+
+class  CustomOption  extends  Option {  
+	function renderMark(MarkType $markType, string $text): string 
+    {
+        switch ($markType)
+        {
+            case MarkType::get(MarkType::BOLD):
+                return "<b>".$text."</b>";
+            default:
+                return parent::renderMark($markType, $text);
+        }
+    }
+    function renderNode(string $nodeType, object $node, string $innerHtml): string 
+    {
+        switch ($nodeType)
+        {
+            case "p":
+                return "<p class='class-id'>".$innerHtml."</p>";
+            case "h1":
+                return "<h1 class='class-id'>".$innerHtml."</h1>";
+            default:
+                return parent::renderNode($nodeType, $node, $innerHtml);
+        }
+    }
 	function renderOptions(array $embeddedObject, Metadata $metadata): string  
 	{  
 		switch ($metadata->getStyleType()) {  
@@ -61,7 +85,7 @@ class  CustomOption  extends  Option  {
 				return  "<a href=".$metadata->getAttribute("href")->value  
 .">".$metadata->getText()."</a>"  
 		}  
-		return $resultString;  
+        return parent::renderOptions($embeddedObject, $metadata);
 	}  
 }
 ```
@@ -70,8 +94,9 @@ class  CustomOption  extends  Option  {
 Contentstack Utils SDK lets you interact with the Content Delivery APIs and retrieve embedded items from the RTE field of an entry.
 
 ### Fetch Embedded Item(s) from a Single Entry:
+#### Render HTML RTE Embedded object
 
-To get an embedded item of a single entry, you need to provide the stack API key, environment name, delivery token, content type’s UID, and entry’s UID. Then, use the includeEmbeddedItems function as shown below:
+To get an embedded item of a single entry, you need to provide the stack API key, environment name, delivery token, content type’s UID, and entry’s UID. Then, use the `Contentstack::renderContent` function as shown below:
   
 ```php
 use Contentstack\Contentstack;  
@@ -84,9 +109,27 @@ $render_rich_text = Contentstack::renderContent($entry['rte_field_uid'], new Opt
 
 If you want to render embedded items using the CustomOption function, you can refer to the code below:
 ```php
-$rendered_rich_text = Contentstack.render_content($entry['rte_field_uid'], new CustomOption($entry));
+$rendered_rich_text = Contentstack.renderContent($entry['rte_field_uid'], new CustomOption($entry));
+```
+#### Render Supercharged RTE contents
+To get a single entry, you need to provide the stack API key, environment name, delivery token, content type and entry UID. Then, use `Contentstack::jsonToHtml` function as shown below:
+
+
+```php
+use Contentstack\Contentstack;  
+use Contentstack\Utils\Model\Option;  
+  
+$stack = Contentstack::Stack('<API_KEY>', '<ENVIRONMENT_SPECIFIC_DELIVERY_TOKEN>', '<ENVIRONMENT>');  
+$entry = $stack->ContentType('<CONTENT_TYPE_UID>')->Entry('<ENTRY_UID>')->includeEmbeddedItems()->toJSON()->fetch();  
+$render_rich_text = Contentstack::jsonToHtml($entry['rte_field_uid'], new Option($entry));
+```
+
+If you want to render embedded items using the CustomOption function, you can refer to the code below:
+```php
+$rendered_rich_text = Contentstack.jsonToHtml($entry['rte_field_uid'], new CustomOption($entry));
 ```
 ### Fetch Embedded Item(s) from Multiple Entries
+#### Render HTML RTE Embedded object
 
 To get embedded items from multiple entries, you need to provide the stack API key, environment name, delivery token, and content type’s UID.
 ```php
@@ -98,5 +141,20 @@ $result = $stack->ContentType('<CONTENT_TYPE_UID>')->Query()->toJSON()->includeE
 for($i = 0; $i < count($result[0]); $i++) {  
 	$entry = $result[0][$i];  
 	$render_rich_text = Contentstack::renderContent($entry['rich_text_content'], new Option($entry));  
+}
+```
+
+#### Render Supercharged RTE contents
+To get a single entry, you need to provide the stack API key, environment name, delivery token, content type UID. Then, use `Contentstack::jsonToHtml` function as shown below:
+
+```php
+use Contentstack\Contentstack;  
+use Contentstack\Utils\Model\Option;  
+  
+$stack = Contentstack::Stack('<API_KEY>', '<ENVIRONMENT_SPECIFIC_DELIVERY_TOKEN>', '<ENVIRONMENT>');  
+$result = $stack->ContentType('<CONTENT_TYPE_UID>')->Query()->toJSON()->includeEmbeddedItems()->find()  
+for($i = 0; $i < count($result[0]); $i++) {  
+	$entry = $result[0][$i];  
+	$render_rich_text = Contentstack::jsonToHtml($entry['rich_text_content'], new Option($entry));  
 }
 ```
