@@ -136,12 +136,12 @@ class Option implements RenderableInterface {
         return $resultString;
     }
 
-    function renderOptions(array $embeddedObject, Metadata $metadata): string
+    function renderOptions(array $embeddedObject, Metadata $metadata): string 
     {
         $resultString = "";
         switch ($metadata->getStyleType()) {
             case StyleType::get(StyleType::BLOCK): 
-                $resultString =  "<div><p>" . ($embeddedObject["title"] ?? $embeddedObject["uid"]) . "</p><p>Content type: <span>". $embeddedObject["_content_type_uid"] ."</span></p></div>";
+                $resultString =  "<div><p>" . ($embeddedObject["title"] ?? $embeddedObject["uid"]) . "</p><p>Content type: <span>". ($embeddedObject["_content_type_uid"] ?? $embeddedObject["system"]["content_type_uid"]) ."</span></p></div>";
             break;
             case StyleType::get(StyleType::INLINE): 
                 $resultString =  "<span>".($embeddedObject["title"] ?? $embeddedObject["uid"])."</span>";
