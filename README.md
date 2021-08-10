@@ -158,3 +158,15 @@ for($i = 0; $i < count($result[0]); $i++) {
 	$render_rich_text = Contentstack::jsonToHtml($entry['rich_text_content'], new Option($entry));  
 }
 ```
+#### GQL 
+
+To Convert JSON RTE content to HTML from GQL API. Use `GQL::jsonToHtml` function as shown below:
+
+```php
+use Contentstack\Utils\GQL;
+use Contentstack\Utils\Model\Option;  
+// GQL fetch API
+... 
+	$render_html_text = GQL::jsonToHtml($entry->rich_text_content,, new Option());
+...
+```
