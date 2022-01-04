@@ -57,7 +57,7 @@ class Option implements RenderableInterface {
     function renderNode(string $nodeType, object $node, string $innerHtml): string 
     {
         $resultString = "";
-        $attrs = get_object_vars($node->attrs);
+        $attrs = get_object_vars((object)$node->attrs);
         switch ($nodeType) 
         {
             case NodeType::get(NodeType::PARAGRAPH)->getValue():
