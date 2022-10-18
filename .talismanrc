@@ -1,3 +1,5 @@
 fileignoreconfig:
+- filename: composer.lock
+  checksum: 3e19a34da8e50af426a1b648f3fb067592c3df08274fa553b7204fd4d326e1df
 - filename: README.md
   allowed_patterns: [API_KEY, DELIVERY_TOKEN, ENVIRONMENT, Contentstack::]
