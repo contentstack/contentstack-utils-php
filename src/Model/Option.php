@@ -50,6 +50,9 @@ class Option implements RenderableInterface {
             case MarkType::get(MarkType::SUPERSCRIPT):
                 $resultString = "<sup>".$text."</sup>";
                 break;
+            case MarkType::get(MarkType::BREAK):
+                $resultString = "<br />";
+                break;
         }
         return $resultString;
     }
@@ -128,6 +131,13 @@ class Option implements RenderableInterface {
                 break;
             case NodeType::get(NodeType::CODE)->getValue():
                 $resultString = "<code>".$innerHtml."</code>";
+                break;
+            case NodeType::get(NodeType::REFERENCE)->getValue():
+                if(isset($attrs["type"]) && $attrs["type"] == "asset"){
+                    $resultString = "<img src=".$attrs['attrs']['asset-link']." alt=".$attrs['attrs']['asset-name']."/>"; 
+                }else{ 
+                    $resultString = $innerHtml;
+                }
                 break;
             default:
                 $resultString = $innerHtml;

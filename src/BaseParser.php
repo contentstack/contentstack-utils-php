@@ -68,6 +68,9 @@ class BaseParser
         if (isset($node->bold) && $node->bold) {
             $text = $option->renderMark(MarkType::get(MarkType::BOLD), $text);
         }
+        if (isset($node->break) && $node->break) {
+            $text = $option->renderMark(MarkType::get(MarkType::BREAK), $text);
+        }
         return $text;
     }
 
