@@ -17,4 +17,5 @@ class MarkType extends Enum
     
     const SUBSCRIPT = 'subscript';
     const SUPERSCRIPT = 'superscript';
+    const BREAK = 'break';
 }

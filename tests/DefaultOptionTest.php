@@ -121,6 +121,8 @@ class DefaultOptionTest extends TestCase
         $this->assertEquals("<sub>".DefaultOptionTest::$text."</sub>", $subscriptString);
         $superscriptString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::SUPERSCRIPT), DefaultOptionTest::$text);
         $this->assertEquals("<sup>".DefaultOptionTest::$text."</sup>", $superscriptString);
+        $breakString = DefaultOptionTest::$defaultRender->renderMark(MarkType::get(MarkType::BREAK), DefaultOptionTest::$text);
+        $this->assertEquals("<br />", $breakString);
     }
     
     function testShouldReturnParagraphHtmlForParagraphnode(): void 
@@ -311,6 +313,16 @@ class DefaultOptionTest extends TestCase
 
         $this->assertEquals(DefaultOptionTest::$text, $resultString);
     }
+
+    function testShouldReturnReferenceHtmlForReferenceNodeForAssests(): void 
+    {
+        $node = json_decode(AssetReferenceJson);
+
+        $resultString = DefaultOptionTest::$defaultRender->renderNode(NodeType::get(NodeType::REFERENCE)->getValue(), $node, DefaultOptionTest::$text);
+
+        $this->assertEquals(DefaultOptionTest::$text, $resultString);
+    }
+
 
     function testShouldTextReferenceHtmlForTextNode(): void 
     {
