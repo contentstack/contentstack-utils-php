@@ -25,6 +25,7 @@ class NodeType extends Enum
     const ORDER_LIST = 'ol';
     const UNORDER_LIST = 'ul';
     const LIST_ITEM = 'li';
+    const FRAGMENT = 'fragment';
   
     const HR = 'hr';
 

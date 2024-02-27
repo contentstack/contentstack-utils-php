@@ -276,6 +276,20 @@ class UtilsJsonToHtmlTest extends TestCase
         $this->assertEquals(OrderListHtml, $result);
     }
 
+    public function testShouldReturnOrderListTagOnOrderListWithFragmentTag(): void
+    {
+        $jsonObject = json_decode(OrderListWithFragmentJson);
+        $result = Utils::jsonToHtml($jsonObject, new Option());
+        $this->assertEquals(OrderListWithFragmentHtml, $result);
+    }
+
+    public function testShouldReturnUnOrderListTagOnOrderListWithFragmentTag(): void
+    {
+        $jsonObject = json_decode(UnOrderListWithFragmentJson);
+        $result = Utils::jsonToHtml($jsonObject, new Option());
+        $this->assertEquals(UnorderListWithFragmentHtml, $result);
+    }
+    
     public function testShouldReturnOrderListTagOnArrayOrderList(): void
     {
         $jsonObject = json_decode(OrderListJson);
