@@ -17,8 +17,8 @@ jobs:
     - name: Setup PHP with Xdebug 2.x
       uses: shivammathur/setup-php@v2
       with:
-        php-version: '8.0'
-        coverage: xdebug2
+        php-version: '8.3'
+        coverage: xdebug
 
     - name: Validate composer.json and composer.lock
       run: composer validate
