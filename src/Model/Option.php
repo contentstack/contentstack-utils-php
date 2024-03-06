@@ -60,7 +60,11 @@ class Option implements RenderableInterface {
     function renderNode(string $nodeType, object $node, string $innerHtml): string 
     {
         $resultString = "";
-        $attrs = get_object_vars((object)$node->attrs);
+        if (property_exists($node, 'attrs')) {
+            $attrs = get_object_vars((object)$node->attrs);
+        } else {
+            $attrs = array();
+        }
         switch ($nodeType) 
         {
             case NodeType::get(NodeType::PARAGRAPH)->getValue():
@@ -131,6 +135,9 @@ class Option implements RenderableInterface {
                 break;
             case NodeType::get(NodeType::CODE)->getValue():
                 $resultString = "<code>".$innerHtml."</code>";
+                break;
+            case NodeType::get(NodeType::FRAGMENT)->getValue():
+                $resultString = "<fragment>".$innerHtml."</fragment>";
                 break;
             case NodeType::get(NodeType::REFERENCE)->getValue():
                 if(isset($attrs["type"]) && $attrs["type"] == "asset"){
