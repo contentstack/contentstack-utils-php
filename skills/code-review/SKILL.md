@@ -26,9 +26,3 @@ description: Use when reviewing or preparing a PR — tests, style, SemVer, docs
 - **Blocker:** Breaks tests, CI, or documented security/policy requirements.
 - **Major:** Missing tests for non-trivial logic, public API breakage without version strategy, or policy violations (e.g. wrong base branch).
 - **Minor:** Style nits, naming, or internal refactors with no contract change.
-
-## References
-
-- [`CONTRIBUTING.md`](../../CONTRIBUTING.md)
-- [`PULL_REQUEST_TEMPLATE.md`](../../PULL_REQUEST_TEMPLATE.md)
-- [`dev-workflow/SKILL.md`](../dev-workflow/SKILL.md)

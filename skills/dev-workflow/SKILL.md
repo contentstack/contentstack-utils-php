@@ -36,9 +36,3 @@ description: Use when running Composer, CI, or PRs to master/next — installs, 
 ### Releases / versioning
 
 - Project follows SemVer per [`CONTRIBUTING.md`](../../CONTRIBUTING.md); public API changes belong in changelog/release notes as the maintainers require.
-
-## References
-
-- [`AGENTS.md`](../../AGENTS.md)
-- [`testing/SKILL.md`](../testing/SKILL.md)
-- [`php-style/SKILL.md`](../php-style/SKILL.md)
