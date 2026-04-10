@@ -33,8 +33,3 @@ description: Use when writing PHPUnit tests, mocks under tests/Mock, or coverage
 ### Credentials
 
 - Tests use mocks and fixtures; do not add real API keys or stack secrets to the repo.
-
-## References
-
-- [`dev-workflow/SKILL.md`](../dev-workflow/SKILL.md)
-- [`contentstack-utils/SKILL.md`](../contentstack-utils/SKILL.md)

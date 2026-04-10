@@ -30,8 +30,3 @@ description: Use when applying PSR-2, running PHPCS, or matching src/tests layou
 ### Strict typing
 
 - New PHP files in `src/` should use `declare(strict_types=1);` consistently with existing classes.
-
-## References
-
-- [`dev-workflow/SKILL.md`](../dev-workflow/SKILL.md)
-- [PSR-2 coding style guide](https://www.php-fig.org/psr/psr-2/)

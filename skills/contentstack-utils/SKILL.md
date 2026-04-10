@@ -34,9 +34,3 @@ description: Use when changing Utils, GQL, BaseParser, models, enums, or embed/r
 
 - This package does not ship HTTP calls; consumers fetch data with the Contentstack PHP SDK or other clients and pass strings/objects into `Utils` / `GQL`.
 - Prefer backward-compatible changes to public method signatures; follow SemVer.
-
-## References
-
-- [`testing/SKILL.md`](../testing/SKILL.md)
-- [`php-style/SKILL.md`](../php-style/SKILL.md)
-- [Product README — usage](../../README.md)
