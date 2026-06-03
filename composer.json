@@ -41,9 +41,12 @@
         }
     },
     "scripts": {
+        "post-install-cmd": ["@php scripts/download-regions.php"],
+        "post-update-cmd":  ["@php scripts/download-regions.php"],
         "test": "phpunit",
         "check-style": "phpcs src tests",
-        "fix-style": "phpcbf src tests"
+        "fix-style": "phpcbf src tests",
+        "refresh-regions": "@php scripts/download-regions.php"
     },
     "extra": {
         "branch-alias": {

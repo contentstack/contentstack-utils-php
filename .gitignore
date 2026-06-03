@@ -3,3 +3,4 @@ vendor
 phpcs.xml
 .phpunit.result.cache
 */.DS_Store
+src/assets/regions.json
