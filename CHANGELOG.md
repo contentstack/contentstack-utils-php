@@ -1,5 +1,5 @@
 # Changelog
-## [1.3.0](https://github.com/contentstack/contentstack-utils-php/tree/v1.3.0) (2026-06-03)
+## [1.3.0](https://github.com/contentstack/contentstack-utils-php/tree/v1.3.0) (2026-06-15)
   - Added `Endpoint::getContentstackEndpoint()` for dynamic region-aware URL resolution
   - Added `Utils::getContentstackEndpoint()` proxy for backward-compatible access
   - Bundled `regions.json` is now downloaded at `composer install` / `composer update` via `post-install-cmd`; the file is not committed to the repository
