@@ -84,6 +84,24 @@ class Utils extends BaseParser
         return $resultHtml;
     }
 
+    /**
+     * Resolve a Contentstack service endpoint URL for a given region.
+     *
+     * @param  string $region    Region ID or alias (e.g. 'us', 'eu', 'azure-na', 'gcp-eu').
+     * @param  string $service   Optional service key (e.g. 'contentDelivery', 'contentManagement').
+     *                           When empty, all endpoints for the region are returned as an array.
+     * @param  bool   $omitHttps When true, strips the 'https://' prefix from returned URL(s).
+     *
+     * @return string|array<string,string>
+     */
+    public static function getContentstackEndpoint(
+        string $region = 'us',
+        string $service = '',
+        bool $omitHttps = false
+    ) {
+        return Endpoint::getContentstackEndpoint($region, $service, $omitHttps);
+    }
+
     protected static function findObject(Metadata $metadata, array $entry): array
     {
         if (array_key_exists('_embedded_items', $entry)) 

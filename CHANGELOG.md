@@ -1,6 +1,12 @@
 # Changelog
-## [1.2.1](https://github.com/contentstack/contentstack-utils-php/tree/v1.2.1) (2024-03-02)
-  - Support for the fragment tag in nested list 
+## [1.3.0](https://github.com/contentstack/contentstack-utils-php/tree/v1.3.0) (2026-06-15)
+  - Added `Endpoint::getContentstackEndpoint()` for dynamic region-aware URL resolution
+  - Added `Utils::getContentstackEndpoint()` proxy for backward-compatible access
+  - Bundled `regions.json` is now downloaded at `composer install` / `composer update` via `post-install-cmd`; the file is not committed to the repository
+  - Added runtime fallback in `Endpoint::loadRegions()` — downloads `regions.json` on first use when the file is absent (e.g. when the package is installed as a dependency)
+  - Added `composer refresh-regions` script to manually pull the latest regions from Contentstack
+  - Supports 7 regions (AWS NA/EU/AU, Azure NA/EU, GCP NA/EU) and 18 service endpoint keys
+
 ## [1.2.0](https://github.com/contentstack/contentstack-utils-php/tree/v1.2.0) (2023-06-27)
   - Support for the br tag and support for nested assets in the the image
 ## [1.1.0](https://github.com/contentstack/contentstack-utils-php/tree/v1.1.0) (2021-07-16)
